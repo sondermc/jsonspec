@@ -1,0 +1,16 @@
+{
+	"$schema": "http://json-schema.org/draft-06/schema#",
+	"title": "RPM builder schema for input validation file",
+	"description": "RPM builder based on json as input",
+	"type": "object",
+	"properties": {
+		"rpmname": {"type" : "string"},
+		"rpmdesc": {"type" : "string"},
+		"rpmversion.major": {"type" : "number"},
+		"rpmversion.minor": {"type" : "number"},
+		"rpmversion.patch": {"type" : "number"},
+		"file": {"type": "array", "minItems": 2, "maxItems": 2, "source": {"type":"string"}, "destination": {"type":"string"} },
+		"description": {"type" : "string"}
+	},
+	"required": ["rpmname","rpmdesc","rpmversion.major","rpmversion.minor","rpmversion.patch","file" ]
+}

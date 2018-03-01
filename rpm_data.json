@@ -1,0 +1,11 @@
+{
+  "rpmname": "example",
+  "rpmdesc": "Example description",
+  "rpmversion.major": 1,
+  "rpmversion.minor": 0,
+  "rpmversion.patch": 1,
+  "file": [
+    { "source":"README.md", "destination":"~/README.md" },
+    { "source":"LICENSE", "destination":"~/LICENSE" }
+  ]
+}
