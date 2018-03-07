@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import json
- 
+
 data = json.load(open('rpm_data.json'))
 
 print('-------------------------------------------------------------------------')
@@ -10,12 +10,14 @@ print('RPM_VERSION: {0}.{1}.{2}'.format(data['rpmversion.major'], data['rpmversi
 print('FILES:')
 for i in data['file']:
   print('FILE: src: {0}, dest: {1}'.format(i['source'],i['destination']))
-print('-------------------------------------------------------------------------')
+print('-------------------------------------------------------------------------*')
 
-t = open("template/template.spec", "r+")
+#t = open("spec/jsonspec.template", "r+")
+#print t.read().replace('$rpmname',data['rpmname'])
 
-for row in t:
-  newrow = row.replace("{rpmname}", data['rpmname'])
-  print newrow
+with open("spec/jsonspec.template", "r+") as inputFile:
+    inputText = inputFile.read()
+    inputText = inputText.replace('$rpmname',data['rpmname'])
+    inputText = inputText.replace('$rpmdesc',data['rpmdesc'])
 
-t.close()
+print inputText 
